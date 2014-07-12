@@ -14,7 +14,7 @@ object frmMain: TfrmMain
   object Label1: TLabel
     Left = 16
     Height = 14
-    Top = 56
+    Top = 58
     Width = 32
     Caption = 'Section'
     ParentColor = False

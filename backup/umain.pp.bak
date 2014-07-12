@@ -92,8 +92,11 @@ begin
 end;
 
 procedure TfrmMain.btnSetMagicalStringClick(Sender: TObject);
+const
+  STRING_ERROR : String = 'Length of the string is not appropriate.';
 var
   showSuccessMsg : Boolean = False;
+  tempString : String;
 begin
   {create dialog}
   dlgInputString:= TdlgInputString.Create(frmMain);
@@ -102,8 +105,17 @@ begin
   {show dialog}
   if(dlgInputString.ShowModal = mrOK) then
     begin
-      encryptionString:= dlgInputString.getNewString;
-      showSuccessMsg:= True;
+      tempString:= dlgInputString.getNewString;
+      if(Length(tempString) > 2) then
+        begin
+          showSuccessMsg:= True;
+          encryptionString:= tempString;
+        end
+      else
+        begin
+          ShowMessage(STRING_ERROR);
+          Exit;
+        end;
     end;
   {free dialog}
   dlgInputString.Free;

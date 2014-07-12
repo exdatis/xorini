@@ -12,15 +12,15 @@ object dlgInputString: TdlgInputString
   LCLVersion = '1.2.4.0'
   object Label1: TLabel
     Left = 10
-    Height = 16
+    Height = 14
     Top = 15
-    Width = 67
+    Width = 63
     Caption = 'Current string'
     ParentColor = False
   end
   object edtCurrString: TEdit
     Left = 92
-    Height = 28
+    Height = 26
     Top = 6
     Width = 210
     Color = clSilver
@@ -31,24 +31,24 @@ object dlgInputString: TdlgInputString
   end
   object GroupBox1: TGroupBox
     Left = 10
-    Height = 81
+    Height = 74
     Top = 34
     Width = 301
     Caption = ' Set string '
-    ClientHeight = 64
+    ClientHeight = 59
     ClientWidth = 299
     TabOrder = 1
     object Label2: TLabel
       Left = 6
-      Height = 16
+      Height = 14
       Top = 8
-      Width = 53
+      Width = 49
       Caption = 'New string'
       ParentColor = False
     end
     object edtNewString: TEdit
       Left = 80
-      Height = 28
+      Height = 26
       Top = -1
       Width = 210
       EchoMode = emPassword
@@ -57,16 +57,16 @@ object dlgInputString: TdlgInputString
     end
     object Label3: TLabel
       Left = 6
-      Height = 16
-      Top = 38
-      Width = 40
+      Height = 14
+      Top = 36
+      Width = 35
       Caption = 'Validate'
       ParentColor = False
     end
     object edtValidate: TEdit
       Left = 80
-      Height = 28
-      Top = 29
+      Height = 26
+      Top = 27
       Width = 210
       EchoMode = emPassword
       OnEnter = edtValidateEnter
@@ -77,9 +77,9 @@ object dlgInputString: TdlgInputString
   end
   object btnCancel: TButton
     Cursor = crHandPoint
-    Left = 157
+    Left = 151
     Height = 25
-    Top = 121
+    Top = 117
     Width = 75
     Caption = 'Cancel'
     ModalResult = 2
@@ -87,9 +87,9 @@ object dlgInputString: TdlgInputString
   end
   object btnOk: TButton
     Cursor = crHandPoint
-    Left = 233
+    Left = 227
     Height = 25
-    Top = 121
+    Top = 117
     Width = 75
     Caption = 'Ok'
     Default = True
