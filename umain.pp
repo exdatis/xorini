@@ -92,6 +92,8 @@ begin
 end;
 
 procedure TfrmMain.btnSetMagicalStringClick(Sender: TObject);
+var
+  showSuccessMsg : Boolean = False;
 begin
   {create dialog}
   dlgInputString:= TdlgInputString.Create(frmMain);
@@ -99,14 +101,18 @@ begin
   dlgInputString.edtCurrString.Text:= encryptionString;
   {show dialog}
   if(dlgInputString.ShowModal = mrOK) then
-    encryptionString:= dlgInputString.getNewString;
+    begin
+      encryptionString:= dlgInputString.getNewString;
+      showSuccessMsg:= True;
+    end;
   {free dialog}
   dlgInputString.Free;
   {*****************************************************************************
   -debug msg
   ShowMessage(encryptionString);
   *****************************************************************************}
-  ShowMessage(SUCCESS_MSG);
+  if(showSuccessMsg) then
+    ShowMessage(SUCCESS_MSG);
 end;
 
 procedure TfrmMain.btnAddClick(Sender: TObject);

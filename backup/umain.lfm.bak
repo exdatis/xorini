@@ -15,13 +15,13 @@ object frmMain: TfrmMain
     Left = 16
     Height = 14
     Top = 56
-    Width = 37
+    Width = 32
     Caption = 'Section'
     ParentColor = False
   end
   object edtSection: TEdit
     Left = 91
-    Height = 24
+    Height = 26
     Top = 49
     Width = 356
     TabOrder = 0
@@ -32,8 +32,8 @@ object frmMain: TfrmMain
     Top = 77
     Width = 431
     Caption = ' Values '
-    ClientHeight = 196
-    ClientWidth = 427
+    ClientHeight = 197
+    ClientWidth = 429
     TabOrder = 1
     object sgValues: TStringGrid
       Cursor = crHandPoint
@@ -104,7 +104,7 @@ object frmMain: TfrmMain
   end
   object btnQuit: TButton
     Cursor = crHandPoint
-    Left = 360
+    Left = 368
     Height = 25
     Top = 360
     Width = 75
@@ -127,8 +127,8 @@ object frmMain: TfrmMain
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 26
-    ClientWidth = 278
+    ClientHeight = 27
+    ClientWidth = 280
     Columns = 2
     ItemIndex = 0
     Items.Strings = (
@@ -346,7 +346,7 @@ object frmMain: TfrmMain
     Height = 25
     Hint = 'Save as template'
     Top = 360
-    Width = 107
+    Width = 115
     Caption = '&Create template'
     OnClick = btnCreateTmplClick
     ParentShowHint = False
@@ -355,11 +355,11 @@ object frmMain: TfrmMain
   end
   object btnLoadTmpl: TButton
     Cursor = crHandPoint
-    Left = 123
+    Left = 133
     Height = 25
     Hint = 'Open template ini'
     Top = 360
-    Width = 107
+    Width = 115
     Caption = '&Load from template'
     OnClick = btnLoadTmplClick
     ParentShowHint = False
@@ -368,11 +368,11 @@ object frmMain: TfrmMain
   end
   object btnSetMagicalString: TButton
     Cursor = crHandPoint
-    Left = 232
+    Left = 249
     Height = 25
     Hint = 'Encryption string'
     Top = 360
-    Width = 107
+    Width = 115
     Caption = 'Set MagicalString'
     OnClick = btnSetMagicalStringClick
     ParentShowHint = False
