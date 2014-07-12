@@ -1,0 +1,15 @@
+unit uexdatis;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils;
+var
+  MAGICAL_STRING : String = 'Fpc2806967';
+
+implementation
+
+end.
+
