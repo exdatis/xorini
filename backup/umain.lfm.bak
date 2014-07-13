@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 372
+  Left = 476
   Height = 397
-  Top = 151
+  Top = 147
   Width = 463
   BorderStyle = bsDialog
   Caption = 'Ini creator'
@@ -13,9 +13,9 @@ object frmMain: TfrmMain
   LCLVersion = '1.2.4.0'
   object Label1: TLabel
     Left = 16
-    Height = 14
-    Top = 58
-    Width = 32
+    Height = 16
+    Top = 54
+    Width = 44
     Caption = 'Section'
     ParentColor = False
   end
@@ -32,8 +32,8 @@ object frmMain: TfrmMain
     Top = 77
     Width = 431
     Caption = ' Values '
-    ClientHeight = 197
-    ClientWidth = 429
+    ClientHeight = 194
+    ClientWidth = 427
     TabOrder = 1
     object sgValues: TStringGrid
       Cursor = crHandPoint
@@ -54,8 +54,8 @@ object frmMain: TfrmMain
       Left = 7
       Height = 25
       Hint = 'New rec'
-      Top = 163
-      Width = 60
+      Top = 164
+      Width = 81
       Caption = 'Insert &row'
       OnClick = btnAddClick
       ParentShowHint = False
@@ -64,11 +64,11 @@ object frmMain: TfrmMain
     end
     object btnDelete: TButton
       Cursor = crHandPoint
-      Left = 68
+      Left = 90
       Height = 25
       Hint = 'Delete selected'
-      Top = 163
-      Width = 75
+      Top = 164
+      Width = 81
       Caption = '&Delete row'
       OnClick = btnDeleteClick
       ParentShowHint = False
@@ -77,11 +77,11 @@ object frmMain: TfrmMain
     end
     object btnEnterFilePath: TButton
       Cursor = crHandPoint
-      Left = 144
+      Left = 172
       Height = 25
       Hint = 'Find path'
-      Top = 163
-      Width = 137
+      Top = 164
+      Width = 123
       Caption = '&Enter file path'
       OnClick = btnEnterFilePathClick
       ParentShowHint = False
@@ -90,12 +90,12 @@ object frmMain: TfrmMain
     end
     object btnEnterDirPath: TButton
       Cursor = crHandPoint
-      Left = 282
+      Left = 296
       Height = 25
       Hint = 'Select Directory'
-      Top = 163
-      Width = 137
-      Caption = 'Enter director&y path'
+      Top = 164
+      Width = 123
+      Caption = 'Enter dir pat&h'
       OnClick = btnEnterDirPathClick
       ParentShowHint = False
       ShowHint = True
@@ -127,8 +127,8 @@ object frmMain: TfrmMain
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 27
-    ClientWidth = 280
+    ClientHeight = 24
+    ClientWidth = 278
     Columns = 2
     ItemIndex = 0
     Items.Strings = (
@@ -234,9 +234,9 @@ object frmMain: TfrmMain
   end
   object Label2: TLabel
     Left = 152
-    Height = 14
+    Height = 16
     Top = 14
-    Width = 161
+    Width = 207
     Caption = 'Configuration(*.ini, *.cnf, *.conf)'
     Font.Style = [fsBold]
     ParentColor = False
@@ -244,8 +244,8 @@ object frmMain: TfrmMain
   end
   object DividerBevel1: TDividerBevel
     Left = 16
-    Height = 14
-    Top = 344
+    Height = 16
+    Top = 342
     Width = 431
     Caption = 'ExDatis '
     Font.Style = [fsBold]
@@ -360,7 +360,7 @@ object frmMain: TfrmMain
     Hint = 'Open template ini'
     Top = 360
     Width = 115
-    Caption = '&Load from template'
+    Caption = '&Load template'
     OnClick = btnLoadTmplClick
     ParentShowHint = False
     ShowHint = True
@@ -453,7 +453,7 @@ object frmMain: TfrmMain
     ShowCreditButton = False
     CreditsTextfileName = 'credits.txt'
     PoweredBy.DelayMilliSecs = 3000
-    left = 55
-    top = 224
+    left = 32
+    top = 128
   end
 end

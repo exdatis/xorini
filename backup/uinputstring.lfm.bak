@@ -1,7 +1,7 @@
 object dlgInputString: TdlgInputString
-  Left = 359
+  Left = 428
   Height = 153
-  Top = 150
+  Top = 160
   Width = 320
   BorderStyle = bsDialog
   Caption = 'Set magical string'
@@ -11,18 +11,18 @@ object dlgInputString: TdlgInputString
   Position = poDesktopCenter
   LCLVersion = '1.2.4.0'
   object Label1: TLabel
-    Left = 10
-    Height = 14
-    Top = 15
-    Width = 63
-    Caption = 'Current string'
+    Left = 18
+    Height = 16
+    Top = 11
+    Width = 46
+    Caption = 'Current'
     ParentColor = False
   end
   object edtCurrString: TEdit
-    Left = 92
+    Left = 108
     Height = 26
     Top = 6
-    Width = 210
+    Width = 194
     Color = clSilver
     Font.Style = [fsStrikeOut]
     ParentFont = False
@@ -31,43 +31,43 @@ object dlgInputString: TdlgInputString
   end
   object GroupBox1: TGroupBox
     Left = 10
-    Height = 74
+    Height = 77
     Top = 34
     Width = 301
     Caption = ' Set string '
     ClientHeight = 59
-    ClientWidth = 299
+    ClientWidth = 297
     TabOrder = 1
     object Label2: TLabel
       Left = 6
-      Height = 14
-      Top = 8
-      Width = 49
+      Height = 16
+      Top = 4
+      Width = 65
       Caption = 'New string'
       ParentColor = False
     end
     object edtNewString: TEdit
-      Left = 80
+      Left = 97
       Height = 26
       Top = -1
-      Width = 210
+      Width = 193
       EchoMode = emPassword
       PasswordChar = '*'
       TabOrder = 0
     end
     object Label3: TLabel
       Left = 6
-      Height = 14
-      Top = 36
-      Width = 35
+      Height = 16
+      Top = 32
+      Width = 50
       Caption = 'Validate'
       ParentColor = False
     end
     object edtValidate: TEdit
-      Left = 80
+      Left = 97
       Height = 26
       Top = 27
-      Width = 210
+      Width = 193
       EchoMode = emPassword
       OnEnter = edtValidateEnter
       OnKeyUp = edtValidateKeyUp
