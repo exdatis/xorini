@@ -7,23 +7,27 @@ object dlgInputString: TdlgInputString
   Caption = 'Set magical string'
   ClientHeight = 153
   ClientWidth = 320
+  Font.Height = -12
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.2.4.0'
   object Label1: TLabel
     Left = 18
-    Height = 16
+    Height = 15
     Top = 11
-    Width = 46
+    Width = 43
     Caption = 'Current'
     ParentColor = False
   end
   object edtCurrString: TEdit
     Left = 108
-    Height = 26
+    Height = 25
     Top = 6
     Width = 194
     Color = clSilver
+    Constraints.MaxHeight = 25
+    Constraints.MinHeight = 25
+    Font.Height = -12
     Font.Style = [fsStrikeOut]
     ParentFont = False
     ReadOnly = True
@@ -35,42 +39,50 @@ object dlgInputString: TdlgInputString
     Top = 34
     Width = 301
     Caption = ' Set string '
-    ClientHeight = 59
+    ClientHeight = 60
     ClientWidth = 297
+    Font.Height = -12
+    ParentFont = False
     TabOrder = 1
     object Label2: TLabel
-      Left = 6
-      Height = 16
-      Top = 4
-      Width = 65
+      Left = 7
+      Height = 15
+      Top = 7
+      Width = 60
       Caption = 'New string'
       ParentColor = False
     end
     object edtNewString: TEdit
       Left = 97
-      Height = 26
-      Top = -1
+      Height = 25
+      Top = 2
       Width = 193
+      Constraints.MinHeight = 25
       EchoMode = emPassword
+      Font.Height = -12
+      ParentFont = False
       PasswordChar = '*'
       TabOrder = 0
     end
     object Label3: TLabel
-      Left = 6
-      Height = 16
-      Top = 32
-      Width = 50
+      Left = 7
+      Height = 15
+      Top = 34
+      Width = 45
       Caption = 'Validate'
       ParentColor = False
     end
     object edtValidate: TEdit
       Left = 97
-      Height = 26
-      Top = 27
+      Height = 25
+      Top = 29
       Width = 193
+      Constraints.MinHeight = 25
       EchoMode = emPassword
+      Font.Height = -12
       OnEnter = edtValidateEnter
       OnKeyUp = edtValidateKeyUp
+      ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
     end
@@ -93,7 +105,9 @@ object dlgInputString: TdlgInputString
     Width = 75
     Caption = 'Ok'
     Default = True
+    Font.Height = -12
     ModalResult = 1
+    ParentFont = False
     TabOrder = 3
   end
 end
