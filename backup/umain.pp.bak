@@ -5,7 +5,7 @@ unit umain;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, DividerBevel, usplashabout, Forms,
+  Classes, SysUtils, FileUtil, DividerBevel, usplashabout, uPoweredby, Forms,
   Controls, Graphics, Dialogs, StdCtrls, Grids, ExtCtrls, Buttons, Menus,
   IniFiles, strutils;
 
@@ -34,6 +34,7 @@ type
     appendToFile: TOpenDialog;
     openTmpl: TOpenDialog;
     pmStringGrid: TPopupMenu;
+    Poweredby1: TPoweredby;
     rgSaveAs: TRadioGroup;
     saveToIniFile: TSaveDialog;
     saveTmpl: TSaveDialog;
@@ -80,7 +81,7 @@ const
 
 implementation
 uses
-  uexdatis, uinputstring;
+  uexdatis, uinputstring, uerrordlg;
 {$R *.lfm}
 
 { TfrmMain }
@@ -98,6 +99,7 @@ const
 var
   showSuccessMsg : Boolean = False;
   tempString : String;
+  errorDlg : TfrmErrorDlg;
 begin
   {create dialog}
   dlgInputString:= TdlgInputString.Create(frmMain);
@@ -112,7 +114,11 @@ begin
         begin
           {free dialog}
           dlgInputString.Free;
-          ShowMessage(SAME_STRING);
+          {error dialog}
+          errorDlg:= TfrmErrorDlg.Create(frmMain);
+          errorDlg.setErrorMsg(SAME_STRING);
+          errorDlg.closeErrDetails;
+          errorDlg.ShowModal;
           Exit;
         end;
       {good enough?}
@@ -125,7 +131,11 @@ begin
         begin
           {free dialog}
           dlgInputString.Free;
-          ShowMessage(STRING_ERROR);
+          {error dialog}
+          errorDlg:= TfrmErrorDlg.Create(frmMain);
+          errorDlg.setErrorMsg(STRING_ERROR);
+          errorDlg.closeErrDetails;
+          errorDlg.ShowModal;
           Exit;
         end;
     end;
@@ -160,12 +170,17 @@ procedure TfrmMain.btnCreateTmplClick(Sender: TObject);
 var
   numOfRows : Integer;
   csvPath : String;
+  errorDlg : TfrmErrorDlg;
 begin
   {Check number of rows}
   numOfRows:= sgValues.RowCount;
   if(numOfRows < 2) then
     begin
-      ShowMessage(HASH_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(HASH_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {save to csv file}
@@ -177,7 +192,11 @@ begin
       except
         on e : Exception do
         begin
-          ShowMessage(e.Message);
+          {error dialog}
+          errorDlg:= TfrmErrorDlg.Create(frmMain);
+          errorDlg.setErrorMsg(e.Message);
+          errorDlg.closeErrDetails;
+          errorDlg.ShowModal;
           Exit;
         end;
       end;
@@ -189,11 +208,16 @@ end;
 procedure TfrmMain.btnDeleteClick(Sender: TObject);
 var
   currRow : Integer;
+  errorDlg : TfrmErrorDlg;
 begin
   {count rows}
   if(sgValues.RowCount < 2) then
     begin
-      ShowMessage(ROW_INDEX_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(ROW_INDEX_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {selected}
@@ -206,11 +230,16 @@ procedure TfrmMain.btnEnterDirPathClick(Sender: TObject);
 var
   currPath : String = '';
   currRow, currCol : Integer; {cells}
+  errorDlg : TfrmErrorDlg;
 begin
   {number of rows}
   if(sgValues.RowCount < 2) then
     begin
-      ShowMessage(ROW_INDEX_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(ROW_INDEX_ERROR );
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {selectDir(SelectDirectoryDialog) run}
@@ -227,11 +256,16 @@ procedure TfrmMain.btnEnterFilePathClick(Sender: TObject);
 var
   currPath : String = '';
   currRow, currCol : Integer; {cells}
+  errorDlg : TfrmErrorDlg;
 begin
   {number of rows}
   if(sgValues.RowCount < 2) then
     begin
-      ShowMessage(ROW_INDEX_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(ROW_INDEX_ERROR );
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {findFile(OpenDialog) run}
@@ -277,7 +311,7 @@ end;
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
   {splash}
-  SplashAbout1.PoweredBy.ShowPoweredByForm;
+  Poweredby1.ShowPoweredByForm;
   SplashAbout1.ShowSplash;
 end;
 
@@ -316,19 +350,28 @@ var
   numOfRows : Integer;
   newIniFile : String = '';
   currSection : String;
+  errorDlg : TfrmErrorDlg;
 begin
   {check section}
   currSection:= edtSection.Text;
   if(Length(currSection) < 1) then
     begin
-      ShowMessage(NO_SECTION_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(NO_SECTION_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {number of rows}
   numOfRows:= sgValues.RowCount;
   if(numOfRows < 2) then
     begin
-      ShowMessage(HASH_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(HASH_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {where to save (save dialog)}
@@ -351,19 +394,28 @@ var
   numOfRows : Integer;
   newIniFile : String = '';
   currSection : String;
+  errorDlg : TfrmErrorDlg;
 begin
   {check section}
   currSection:= edtSection.Text;
   if(Length(currSection) < 1) then
     begin
-      ShowMessage(NO_SECTION_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(NO_SECTION_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {number of rows}
   numOfRows:= sgValues.RowCount;
   if(numOfRows < 2) then
     begin
-      ShowMessage(HASH_ERROR);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(HASH_ERROR);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   {where to save (save dialog)}
@@ -399,6 +451,7 @@ var
   i : Integer;
   fileExist : Boolean = False;
   existingSections : TStringList;
+  errorDlg : TfrmErrorDlg;
 begin
   {check file}
   if(FileExistsUTF8(filePath)) then
@@ -409,7 +462,11 @@ begin
   except
     on e : Exception do
     begin
-      ShowMessage(e.Message);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(e.Message);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   end;
@@ -442,6 +499,7 @@ var
   fileExist : Boolean = False;
   existingSections : TStringList;
   xorString : String; {encrypted}
+  errorDlg : TfrmErrorDlg;
 begin
   {check file}
   if(FileExistsUTF8(filePath)) then
@@ -452,7 +510,11 @@ begin
   except
     on e : Exception do
     begin
-      ShowMessage(e.Message);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(e.Message);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   end;
@@ -485,6 +547,7 @@ procedure TfrmMain.appendConfAsTxt(const lastIndex: Integer;
 var
   newIniFile : TIniFile;
   i : Integer;
+  errorDlg : TfrmErrorDlg;
 begin
   {try to create ini}
   try
@@ -492,7 +555,11 @@ begin
   except
     on e : Exception do
     begin
-      ShowMessage(e.Message);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(e.Message);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   end;
@@ -512,6 +579,7 @@ var
   newIniFile : TIniFile;
   i : Integer;
   xorString : String;{enrypted}
+  errorDlg : TfrmErrorDlg;
 begin
   {try to create ini}
   try
@@ -519,7 +587,11 @@ begin
   except
     on e : Exception do
     begin
-      ShowMessage(e.Message);
+      {error dialog}
+      errorDlg:= TfrmErrorDlg.Create(frmMain);
+      errorDlg.setErrorMsg(e.Message);
+      errorDlg.closeErrDetails;
+      errorDlg.ShowModal;
       Exit;
     end;
   end;

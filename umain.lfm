@@ -447,7 +447,6 @@ object frmMain: TfrmMain
     Font.Height = -13
     MaskType = saRoundedRect
     Organisation = 'ExDatis'
-    SupportContact = 'info@exdeatis.net'
     Author = 'Morar'
     UserTitle = 'ExDatis'
     ShowDescription = True
@@ -457,8 +456,12 @@ object frmMain: TfrmMain
     FormSplashHeight = 280
     ShowCreditButton = False
     CreditsTextfileName = 'credits.txt'
-    PoweredBy.DelayMilliSecs = 3000
-    left = 32
-    top = 128
+    left = 54
+    top = 137
+  end
+  object Poweredby1: TPoweredby
+    DelayMilliSecs = 3000
+    left = 115
+    top = 139
   end
 end
